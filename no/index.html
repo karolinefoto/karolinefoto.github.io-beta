@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>KarolineFoto</title>
+    <link rel="shortcut icon" href="../images/logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Average">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Average+Sans&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" media="screen and (max-width: 359px)" href="../css/tiny-styles.css">
+    <link rel="stylesheet" media="screen and (min-width: 360px) and (max-width: 1080px)" href="../css/phone-styles.css">
+    <link rel="stylesheet" media="screen and (min-width: 1081px)" href="../css/desktop-styles.css">
+  </head>
+  <body id="body" onload="showAll(); activeButtons(); checkCookies(); checkWelcome(); resetCurrentCategory();">
+    <div id="header" class="inline">
+      <div id="top-buttons">
+        <button type="button" name="button" class="three-streak-button" onclick="toggleMenu();"><img src="../images/sort.png" alt="..." class="three-streak-button-img"></button>
+        <button type="button" name="button" class="info-button" onclick="toggleSidebar();"><img src="../images/menu.png" alt="meny" class="info-button-img"></button>
+      </div>
+      <nav id="nav-top">
+
+
+        <ul id="nav-top-buttons"> <!-- navbuttons -->
+          <li class="li-navbar"><button type="button" name="button" id="hbtn-0" class="header-button nav-home active-header-button" onclick="nvm();">Gå til Framsida</button></li>
+          <li class="li-navbar"><button type="button" name="button" id="hbtn-1" class="header-button nav-left" onclick="showAll(); setCurrentCategory('all'); oki();">Alle</button></li>
+          <li class="li-navbar"><button type="button" name="button" id="hbtn-2" class="header-button nav-center" onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</button></li>
+          <li class="li-navbar"><button type="button" name="button" id="hbtn-3" class="header-button nav-center" onclick="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();">Dyr</button></li>
+          <li class="li-navbar"><button type="button" name="button" id="hbtn-4" class="header-button nav-center" onclick="show('por', PorNr); setCurrentCategory('por'); oki();">Portrett</button></li>
+          <li class="li-navbar"><button type="button" name="button" id="hbtn-5" class="header-button nav-center" onclick="show('lan', LanNr); setCurrentCategory('lan'); oki();">Landskap</button></li>
+          <li class="li-navbar"><button type="button" name="button" id="hbtn-6" class="header-button nav-center" onclick="show('pla', PlaNr); setCurrentCategory('pla'); oki();">Plantar & Skog</button></li>
+          <li class="li-navbar"><button type="button" name="button" id="hbtn-7" class="header-button nav-right"  onclick="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</button></li>
+        </ul>
+      </nav>
+      <div id="logo"> <!-- logo -->
+        <img id="header-logo" src="../images/logo.png"><!--
+     --><div id="header-text">
+          <h1 class="header-title">KarolineFoto</h1>
+          <h3 class="header-subtitle lang-no">Hobbyfotograf</h3>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <div id="photos"> <!-- The main view displaying the photos in a list -->
+      <div id="column1" class="column"></div>
+      <div id="column2" class="column"></div>
+      <div id="column3" class="column"></div>
+      <div id="column4" class="column"></div>
+    </div>
+    <div id="sidebar" class="phone-hidden"> <!-- The sideview containing additional content -->
+      <div id="sidebar-image">
+        <img id="om-meg-picture" src="../images/fotograf.jpg" alt="">
+      </div>
+      <div id="sidebar-links">
+        <!--
+        <div>
+          <a href="https://www.facebook.com/karolinefoto/"><div id="sidebar-link-fb"><img src="../images/f_logo_RGB-Blue_512.png" alt="FB"><div><h3>Facebook</h3></div></div></a>
+          <a href="https://www.instagram.com/hobbyfotograf_karolinefoto/"><div id="sidebar-link-ig"><div><h3>Instagram</h3></div><img src="../images/IG_round.png" alt="IG"></div></a>
+        </div>
+        <a href="kjøp.html"><div id="sidebar-link-kjøp"><img src="../images/buy.svg" alt="buy"><div><h3>Kjøp bilde eller kalender</h3></div></div></a>
+        <a href="kontakt.html"><div id="sidebar-link-kontakt"><img src="../images/contact.svg" alt="contact"><div><h3>Om meg / Kontakt / <br> Gi meg tilbakemelding</h3></div></div></a>
+        <a href="faq.html"><div id="sidebar-link-faq"><img src="../images/faq.svg" alt="faq"><div><h3>Spørsmål & Svar <br> Prisar etc.</h3></div></div></a>
+        <a href="../en/index.html"><div id="sidebar-link-lang"><img class="img-height-30px" src="../images/flag-en.svg" alt="english"><div><h3>Change to English</h3></div></div></a>
+        <a href="../LICENSE.txt"><div id="sidebar-link-copyright"><img src="../images/filler.png" alt=""><div><h3>Opphavsrett & gjenbruk</h3></div></div></a>
+        <div><p>Fotografia er beskytta under Opphavsrett © 2022 Karoline Myskja & Daniel Svindseth Pettersen. Alle Rettar Reservert. Resten av websida er lisensiert under MIT-Lisensen.</p></div>
+
+      -->
+      </div>
+      <div id="sidebar-small-links">
+        <a href="https://www.facebook.com/karolinefoto/" class="sidebar-small-link" title="Besøk Karolinefoto på Facebook"><img src="../images/f_logo_RGB-Blue_512.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/hobbyfotograf_karolinefoto/" class="sidebar-small-link" title="Besøk Karolinefoto på Instagram"><img src="../images/IG_round.png" alt="Instagram"></a>
+        <a href="kjøp.html" class="sidebar-small-link" title="Kjøp bilete"><img src="../images/buy.svg" alt="Buy"></a>
+        <a href="../LICENSE.txt" class="sidebar-small-link" title="Opphavsrett (Copyright ©)"><img src="../images/Copyright-Round.png" alt="©"></a>
+      </div>
+    </div>
+
+    <div id="nav-menu-2" class="phone-hidden desktop-hidden">
+      <div id="nav-popup-menu">
+        <div class="nav-button-close-div">
+          <button type="button" name="button" class="nav-center nav-button-close" onclick="toggleMenu();">×</button>
+        </div>
+        <div class="">
+          <div class="nav-button-small">
+            <button type="button" name="button" class="header-button nav-center" onclick="show('dyr', DyrNr); setCurrentCategory('dyr');">Dyr</button>
+          </div><!--
+       --><div class="nav-button-small">
+            <button type="button" name="button" class="header-button nav-center" onclick="show('por', PorNr); setCurrentCategory('por');">Portrett</button>
+          </div><!--
+       --><div class="nav-button-big">
+            <button type="button" name="button" class="header-button nav-center" onclick="showAll(); setCurrentCategory('all');">Alle</button>
+          </div>
+
+        </div>
+        <!--
+     --><div class="nav-button-small">
+          <button type="button" name="button" class="header-button nav-center" onclick="show('lan', LanNr); setCurrentCategory('lan');">Landskap</button>
+        </div><!--
+     --><div class="nav-button-small">
+          <button type="button" name="button" class="header-button nav-center" onclick="show('pla', PlaNr); setCurrentCategory('pla');">Plantar</button>
+        </div><!--
+     --><div class="nav-button-small">
+          <button type="button" name="button" class="header-button nav-center" onclick="show('div', DivNr); setCurrentCategory('div');">Diverse</button>
+        </div><!--
+     --><div class="nav-button-small">
+          <button type="button" name="button" class="header-button nav-center" onclick="show('fav', FavNr); setCurrentCategory('fav');">Favorittar</button>
+        </div>
+      </div>
+    </div>
+    <div id="cookie-warning-box" style="display: none;">
+      <p>Denne Nettsida Brukar Cookies. <button type="button" name="ok" onclick="agreeToCookies();">Ok</button></p>
+    </div>
+
+    <div id="welcome">
+      <div class="carousel">
+        <div class="carousel-slide carousel-slide--1"><img src="../images/0.jpg" alt=""></div>
+        <div class="carousel-slide carousel-slide-0"><img src="../images/1.jpg" alt=""></div>
+        <div class="carousel-slide carousel-slide-1"><img src="../images/2.jpg" alt=""></div>
+        <div class="carousel-slide carousel-slide-2"><img src="../images/3.jpg" alt=""></div>
+        <div class="carousel-slide carousel-slide-3"><img src="../images/4.jpg" alt=""></div>
+        <div class="carousel-slide carousel-slide-4"><img src="../images/5.jpg" alt=""></div>
+        <div class="carousel-slide carousel-slide-5"><img src="../images/6.jpg" alt=""></div>
+      </div>
+      <h2 class="welcome-message">Velkommen til KarolineFoto!</h2>
+      <p class="welcome-message">Bilda på sida er sjølvtekne og teke på hobby-basis. Eg oppdaterer sida innimellom når eg har ein del nye bilder å vise fram.</p>
+      <button class="welcome-message" onclick="oki(); okidoki();">Vis meg bilda!</button>
+      <!-- <button class="welcome-test-button" onclick="runCarousel();">Køyr karusellen!</button> -->
+    </div>
+
+  </body>
+  <script type="text/javascript" src="../js/script.js"></script>
+  <script type="text/javascript">
+
+  </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- :) -->
