@@ -23,18 +23,18 @@
 
 
         <ul id="nav-top-buttons"> <!-- navbuttons -->
-          <li class="li-navbar"><button type="button" name="button" id="hbtn-0" class="header-button nav-home active-header-button" onclick="nvm();">Gå til Framsida</button></li>
-          <li class="li-navbar"><button type="button" name="button" id="hbtn-1" class="header-button nav-left" onclick="showAll(); setCurrentCategory('all'); oki();">Alle</button></li>
-          <li class="li-navbar"><button type="button" name="button" id="hbtn-2" class="header-button nav-center" onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</button></li>
-          <li class="li-navbar"><button type="button" name="button" id="hbtn-3" class="header-button nav-center" onclick="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();">Dyr</button></li>
-          <li class="li-navbar"><button type="button" name="button" id="hbtn-4" class="header-button nav-center" onclick="show('por', PorNr); setCurrentCategory('por'); oki();">Portrett</button></li>
-          <li class="li-navbar"><button type="button" name="button" id="hbtn-5" class="header-button nav-center" onclick="show('lan', LanNr); setCurrentCategory('lan'); oki();">Landskap</button></li>
-          <li class="li-navbar"><button type="button" name="button" id="hbtn-6" class="header-button nav-center" onclick="show('pla', PlaNr); setCurrentCategory('pla'); oki();">Plantar & Skog</button></li>
-          <li class="li-navbar"><button type="button" name="button" id="hbtn-7" class="header-button nav-right"  onclick="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-0" id="hbtn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Gå til Framsida</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-1" id="hbtn-1" class="header-button nav-left" onclick="showAll(); setCurrentCategory('all'); oki();">Alle</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-2" id="hbtn-2" class="header-button nav-center" onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-3" id="hbtn-3" class="header-button nav-center" onclick="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();">Dyr</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-4" id="hbtn-4" class="header-button nav-center" onclick="show('por', PorNr); setCurrentCategory('por'); oki();">Portrett</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-5" id="hbtn-5" class="header-button nav-center" onclick="show('lan', LanNr); setCurrentCategory('lan'); oki();">Landskap</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-6" id="hbtn-6" class="header-button nav-center" onclick="show('pla', PlaNr); setCurrentCategory('pla'); oki();">Plantar & Skog</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-7" id="hbtn-7" class="header-button nav-right"  onclick="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</button></li>
         </ul>
       </nav>
       <div id="logo"> <!-- logo -->
-        <img id="header-logo" src="../images/logo.png"><!--
+        <img id="header-logo" alt="KarolineFoto" src="../images/logo.png"><!--
      --><div id="header-text">
           <h1 class="header-title">KarolineFoto</h1>
           <h3 class="header-subtitle lang-no">Hobbyfotograf</h3>
@@ -72,6 +72,7 @@
         <a href="https://www.instagram.com/hobbyfotograf_karolinefoto/" class="sidebar-small-link" title="Besøk Karolinefoto på Instagram"><img src="../images/IG_round.png" alt="Instagram"></a>
         <a href="kjøp.html" class="sidebar-small-link" title="Kjøp bilete"><img src="../images/buy.svg" alt="Buy"></a>
         <a href="../LICENSE.txt" class="sidebar-small-link" title="Opphavsrett (Copyright ©)"><img src="../images/Copyright-Round.png" alt="©"></a>
+        <a href="about.html" class="sidebar-small-link" title="Om oss"><img src="../images/Copyright-Round.png" alt="Om oss"></a>
       </div>
     </div>
 
@@ -123,15 +124,17 @@
       </div>
       <h2 class="welcome-message">Velkommen til KarolineFoto!</h2>
       <p class="welcome-message">Bilda på sida er sjølvtekne og teke på hobby-basis. Eg oppdaterer sida innimellom når eg har ein del nye bilder å vise fram.</p>
+      <p class="welcome-link-info">På sida finn du nyttige lenkjer, <br> der du m.a. kan lese om oss som står bak sida, <br> eller legge inn bestillingar for kopiar av bileta!</p>
+      <img class="welcome-link-info" src="../images/up-arrow-1.png" alt="">
+      <p class="welcome-header-info">Trykk på desse knappane for å vise bilete av ulike kategoriar</p>
       <button class="welcome-message" onclick="oki(); okidoki();">Vis meg bilda!</button>
       <!-- <button class="welcome-test-button" onclick="runCarousel();">Køyr karusellen!</button> -->
     </div>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript">
 
+    </script>
   </body>
-  <script type="text/javascript" src="../js/script.js"></script>
-  <script type="text/javascript">
-
-  </script>
 </html>
 
 
