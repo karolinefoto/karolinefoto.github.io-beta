@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" media="screen and (max-width: 359px)" href="../css/tiny-styles.css">
-    <link rel="stylesheet" media="screen and (min-width: 360px) and (max-width: 1080px)" href="../css/phone-styles.css">
-    <link rel="stylesheet" media="screen and (min-width: 1081px)" href="../css/desktop-styles.css">
+    <link rel="stylesheet" media="screen and (min-width: 360px) and (max-width: 1279px)" href="../css/phone-styles.css">
+    <link rel="stylesheet" media="screen and (min-width: 1280px)" href="../css/desktop-styles.css">
   </head>
   <body id="body" onload="showAll(); activeButtons(); checkCookies(); checkWelcome(); resetCurrentCategory();">
     <div id="header" class="inline">
@@ -22,7 +22,7 @@
       <nav id="nav-top">
 
 
-        <ul id="nav-top-buttons"> <!-- navbuttons -->
+        <ul id="nav-top-buttons"> <!-- desktop navbuttons -->
           <li class="li-navbar"><button type="button" name="hbtn-0" id="hbtn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Gå til Framsida</button></li>
           <li class="li-navbar"><button type="button" name="hbtn-1" id="hbtn-1" class="header-button nav-left" onclick="showAll(); setCurrentCategory('all'); oki();">Alle</button></li>
           <li class="li-navbar"><button type="button" name="hbtn-2" id="hbtn-2" class="header-button nav-center" onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</button></li>
@@ -32,6 +32,20 @@
           <li class="li-navbar"><button type="button" name="hbtn-6" id="hbtn-6" class="header-button nav-center" onclick="show('pla', PlaNr); setCurrentCategory('pla'); oki();">Plantar & Skog</button></li>
           <li class="li-navbar"><button type="button" name="hbtn-7" id="hbtn-7" class="header-button nav-right"  onclick="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</button></li>
         </ul>
+        <div id="nav-mobile"> <!-- mobile navmenu -->
+          <button type="button" name="hbtn-0" id="hbtn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Gå til Framsida</button>
+          <label for="category"></label>
+          <select name="category" id="category">
+            <option value="alle"        onclick="showAll(); setCurrentCategory('all'); oki();" selected>Alle</option>
+            <option value="favorittar"  onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</option>
+            <option value="dyr"         onclick="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();">Dyr</option>
+            <option value="portrett"    onclick="show('por', PorNr); setCurrentCategory('por'); oki();">Portrett</option>
+            <option value="landskap"    onclick="show('lan', LanNr); setCurrentCategory('lan'); oki();">Landskap</option>
+            <option value="plantar"     onclick="show('pla', PlaNr); setCurrentCategory('pla'); oki();">Plantar</option>
+            <option value="diverse"     onclick="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</option>
+          </select>
+        </div>
+        
       </nav>
       <div id="logo"> <!-- logo -->
         <img id="header-logo" alt="KarolineFoto" src="../images/logo.png"><!--
@@ -72,7 +86,7 @@
         <a href="https://www.instagram.com/hobbyfotograf_karolinefoto/" class="sidebar-small-link" title="Besøk Karolinefoto på Instagram"><img src="../images/IG_round.png" alt="Instagram"></a>
         <a href="kjøp.html" class="sidebar-small-link" title="Kjøp bilete"><img src="../images/buy.svg" alt="Buy"></a>
         <a href="../LICENSE.txt" class="sidebar-small-link" title="Opphavsrett (Copyright ©)"><img src="../images/Copyright-Round.png" alt="©"></a>
-        <a href="about.html" class="sidebar-small-link" title="Om oss"><img src="../images/Copyright-Round.png" alt="Om oss"></a>
+        <a href="about.html" class="sidebar-small-link" title="Om oss"><img src="../images/Info-Round.png" alt="Om oss"></a>
       </div>
     </div>
 
