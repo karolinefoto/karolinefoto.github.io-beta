@@ -186,6 +186,18 @@ nav {
     display: inline-block;
     margin: 8px;
   }
+  p.welcome-message {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  p.welcome-message {
+    display: none;
+  }
+  #welcome {
+    grid-template-rows: 110px 50vh auto 60px 20px 50px auto !important;
+  }
 }
 
 
@@ -212,7 +224,7 @@ nav {
   flex-direction: column;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1080px) {
   .column
   {
     flex: 50%;
@@ -908,7 +920,7 @@ button:hover {
   /* grid-template-rows: auto 480px 120px 180px 50px auto; */
   grid-template-rows: 110px 50vh auto 60px 120px 50px auto;
   /* grid-template-columns: auto 360px 360px auto; */
-  grid-template-columns: auto 360px 360px auto;
+  grid-template-columns: auto 40vw 40vw auto;
   grid-template-areas:
     ". . . ."
     "carousel-margin-l carousel carousel carousel-margin-r"
