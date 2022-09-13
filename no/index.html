@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Average+Sans&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2">
     <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" media="screen and (max-width: 359px)" href="../css/tiny-styles.css">
-    <link rel="stylesheet" media="screen and (min-width: 360px) and (max-width: 1279px)" href="../css/phone-styles.css">
+    <link rel="stylesheet" media="screen and (max-width: 399px)" href="../css/tiny-styles.css">
+    <link rel="stylesheet" media="screen and (min-width: 400px) and (max-width: 1279px)" href="../css/phone-styles.css">
     <link rel="stylesheet" media="screen and (min-width: 1280px)" href="../css/desktop-styles.css">
   </head>
   <body id="body" onload="showAll(); activeButtons(); checkCookies(); checkWelcome(); resetCurrentCategory();">
@@ -33,7 +33,7 @@
           <li class="li-navbar"><button type="button" name="hbtn-7" id="hbtn-7" class="header-button nav-right"  onclick="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</button></li>
         </ul>
         <div id="nav-mobile"> <!-- mobile navmenu -->
-          <button type="button" name="hbtn-0" id="hbtn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Gå til Framsida</button>
+          <button type="button" name="hbtn-0" id="category-btn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Gå til Framsida</button>
           <label for="category"></label>
           <select name="category" id="category">
             <option value="alle"        onclick="showAll(); setCurrentCategory('all'); oki();" selected>Alle</option>

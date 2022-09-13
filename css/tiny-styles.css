@@ -138,6 +138,10 @@ li {
   border: white solid 4px;
 }
 
+#category-btn-0 {
+  display: none;
+}
+
 #nav-mobile {
   display: flex;
   width: 100%;

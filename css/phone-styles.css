@@ -196,7 +196,16 @@ nav {
     display: none;
   }
   #welcome {
-    grid-template-rows: 110px 50vh auto 60px 20px 50px auto !important;
+    grid-template-rows: 110px 50vh 20px 60px 20px 50px auto !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  h2.welcome-message {
+    font-size: 30px !important;
+  }
+  p.welcome-message {
+    font-size: 22px !important;
   }
 }
 

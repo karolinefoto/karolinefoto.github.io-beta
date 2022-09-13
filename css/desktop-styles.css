@@ -111,6 +111,10 @@ li {
   display: inline;
 }
 
+#category, #category-btn-0 {
+  display: none;
+}
+
 #top-buttons {
   display: none;
 }
