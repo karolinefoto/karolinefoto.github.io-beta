@@ -36,13 +36,13 @@
           <button type="button" name="hbtn-0" id="category-btn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Gå til Framsida</button>
           <label for="category"></label>
           <select name="category" id="category">
-            <option value="alle"        onclick="showAll(); setCurrentCategory('all'); oki();" selected>Alle</option>
-            <option value="favorittar"  onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</option>
-            <option value="dyr"         onclick="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();">Dyr</option>
-            <option value="portrett"    onclick="show('por', PorNr); setCurrentCategory('por'); oki();">Portrett</option>
-            <option value="landskap"    onclick="show('lan', LanNr); setCurrentCategory('lan'); oki();">Landskap</option>
-            <option value="plantar"     onclick="show('pla', PlaNr); setCurrentCategory('pla'); oki();">Plantar</option>
-            <option value="diverse"     onclick="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</option>
+            <option value="alle"        onclick="showAll(); setCurrentCategory('all'); oki();"          onchange="showAll(); setCurrentCategory('all'); oki();" selected>Alle</option>
+            <option value="favorittar"  onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();" onchange="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</option>
+            <option value="dyr"         onclick="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();" onchange="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();">Dyr</option>
+            <option value="portrett"    onclick="show('por', PorNr); setCurrentCategory('por'); oki();" onchange="show('por', PorNr); setCurrentCategory('por'); oki();">Portrett</option>
+            <option value="landskap"    onclick="show('lan', LanNr); setCurrentCategory('lan'); oki();" onchange="show('lan', LanNr); setCurrentCategory('lan'); oki();">Landskap</option>
+            <option value="plantar"     onclick="show('pla', PlaNr); setCurrentCategory('pla'); oki();" onchange="show('pla', PlaNr); setCurrentCategory('pla'); oki();">Plantar</option>
+            <option value="diverse"     onclick="show('div', DivNr); setCurrentCategory('div'); oki();" onchange="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</option>
           </select>
         </div>
         
@@ -63,65 +63,15 @@
       <div id="column4" class="column"></div>
     </div>
     <div id="sidebar" class="phone-hidden"> <!-- The sideview containing additional content -->
-      <div id="sidebar-image">
-        <img id="om-meg-picture" src="../images/fotograf.jpg" alt="">
-      </div>
-      <div id="sidebar-links">
-        <!--
-        <div>
-          <a href="https://www.facebook.com/karolinefoto/"><div id="sidebar-link-fb"><img src="../images/f_logo_RGB-Blue_512.png" alt="FB"><div><h3>Facebook</h3></div></div></a>
-          <a href="https://www.instagram.com/hobbyfotograf_karolinefoto/"><div id="sidebar-link-ig"><div><h3>Instagram</h3></div><img src="../images/IG_round.png" alt="IG"></div></a>
-        </div>
-        <a href="kjøp.html"><div id="sidebar-link-kjøp"><img src="../images/buy.svg" alt="buy"><div><h3>Kjøp bilde eller kalender</h3></div></div></a>
-        <a href="kontakt.html"><div id="sidebar-link-kontakt"><img src="../images/contact.svg" alt="contact"><div><h3>Om meg / Kontakt / <br> Gi meg tilbakemelding</h3></div></div></a>
-        <a href="faq.html"><div id="sidebar-link-faq"><img src="../images/faq.svg" alt="faq"><div><h3>Spørsmål & Svar <br> Prisar etc.</h3></div></div></a>
-        <a href="../en/index.html"><div id="sidebar-link-lang"><img class="img-height-30px" src="../images/flag-en.svg" alt="english"><div><h3>Change to English</h3></div></div></a>
-        <a href="../LICENSE.txt"><div id="sidebar-link-copyright"><img src="../images/filler.png" alt=""><div><h3>Opphavsrett & gjenbruk</h3></div></div></a>
-        <div><p>Fotografia er beskytta under Opphavsrett © 2022 Karoline Myskja & Daniel Svindseth Pettersen. Alle Rettar Reservert. Resten av websida er lisensiert under MIT-Lisensen.</p></div>
-
-      -->
-      </div>
       <div id="sidebar-small-links">
         <a href="https://www.facebook.com/karolinefoto/" class="sidebar-small-link" title="Besøk Karolinefoto på Facebook"><img src="../images/f_logo_RGB-Blue_512.png" alt="Facebook"></a>
         <a href="https://www.instagram.com/hobbyfotograf_karolinefoto/" class="sidebar-small-link" title="Besøk Karolinefoto på Instagram"><img src="../images/IG_round.png" alt="Instagram"></a>
-        <a href="kjøp.html" class="sidebar-small-link" title="Kjøp bilete"><img src="../images/buy.svg" alt="Buy"></a>
+        <!--<a href="kjøp.html" class="sidebar-small-link" title="Kjøp bilete"><img src="../images/buy.svg" alt="Buy"></a>-->
         <a href="../LICENSE.txt" class="sidebar-small-link" title="Opphavsrett (Copyright ©)"><img src="../images/Copyright-Round.png" alt="©"></a>
         <a href="about.html" class="sidebar-small-link" title="Om oss"><img src="../images/Info-Round.png" alt="Om oss"></a>
       </div>
     </div>
-
-    <div id="nav-menu-2" class="phone-hidden desktop-hidden">
-      <div id="nav-popup-menu">
-        <div class="nav-button-close-div">
-          <button type="button" name="button" class="nav-center nav-button-close" onclick="toggleMenu();">×</button>
-        </div>
-        <div class="">
-          <div class="nav-button-small">
-            <button type="button" name="button" class="header-button nav-center" onclick="show('dyr', DyrNr); setCurrentCategory('dyr');">Dyr</button>
-          </div><!--
-       --><div class="nav-button-small">
-            <button type="button" name="button" class="header-button nav-center" onclick="show('por', PorNr); setCurrentCategory('por');">Portrett</button>
-          </div><!--
-       --><div class="nav-button-big">
-            <button type="button" name="button" class="header-button nav-center" onclick="showAll(); setCurrentCategory('all');">Alle</button>
-          </div>
-
-        </div>
-        <!--
-     --><div class="nav-button-small">
-          <button type="button" name="button" class="header-button nav-center" onclick="show('lan', LanNr); setCurrentCategory('lan');">Landskap</button>
-        </div><!--
-     --><div class="nav-button-small">
-          <button type="button" name="button" class="header-button nav-center" onclick="show('pla', PlaNr); setCurrentCategory('pla');">Plantar</button>
-        </div><!--
-     --><div class="nav-button-small">
-          <button type="button" name="button" class="header-button nav-center" onclick="show('div', DivNr); setCurrentCategory('div');">Diverse</button>
-        </div><!--
-     --><div class="nav-button-small">
-          <button type="button" name="button" class="header-button nav-center" onclick="show('fav', FavNr); setCurrentCategory('fav');">Favorittar</button>
-        </div>
-      </div>
-    </div>
+    
     <div id="cookie-warning-box" style="display: none;">
       <p>Denne Nettsida Brukar Cookies. <button type="button" name="ok" onclick="agreeToCookies();">Ok</button></p>
     </div>
