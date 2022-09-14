@@ -369,6 +369,54 @@ function toggleMenu() {
   }
 }
 
+function categoryChange() {
+  const category_switcher = document.getElementById("category");
+  let cat = category_switcher.options.selectedIndex;
+  switch(cat) {
+    case 0:
+      showAll();
+      setCurrentCategory('all');
+      oki();
+      break;
+      
+    case 1:
+      show('fav', FavNr);
+      setCurrentCategory('fav');
+      oki();
+      break;
+    
+    case 2:
+      show('dyr', DyrNr);
+      setCurrentCategory('dyr');
+      oki();
+      break;
+      
+    case 3:
+      show('por', PorNr);
+      setCurrentCategory('por');
+      oki();
+      break;
+      
+    case 4:
+      show('lan', LanNr);
+      setCurrentCategory('lan');
+      oki();
+      break;
+      
+    case 5:
+      show('pla', PlaNr);
+      setCurrentCategory('pla');
+      oki();
+      break;
+      
+    case 6:
+      show('div', DivNr);
+      setCurrentCategory('div');
+      oki();
+      break;
+  }
+}
+
 function agreeToCookies() {
   localStorage.setItem('hasSeenCookieWarning', 'yes');
   document.getElementById("cookie-warning-box").style.display="none";

@@ -35,14 +35,14 @@
         <div id="nav-mobile"> <!-- mobile navmenu -->
           <button type="button" name="hbtn-0" id="category-btn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Gå til Framsida</button>
           <label for="category"></label>
-          <select name="category" id="category">
-            <option value="alle"        onclick="showAll(); setCurrentCategory('all'); oki();"          onchange="showAll(); setCurrentCategory('all'); oki();" selected>Alle</option>
-            <option value="favorittar"  onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();" onchange="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</option>
-            <option value="dyr"         onclick="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();" onchange="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();">Dyr</option>
-            <option value="portrett"    onclick="show('por', PorNr); setCurrentCategory('por'); oki();" onchange="show('por', PorNr); setCurrentCategory('por'); oki();">Portrett</option>
-            <option value="landskap"    onclick="show('lan', LanNr); setCurrentCategory('lan'); oki();" onchange="show('lan', LanNr); setCurrentCategory('lan'); oki();">Landskap</option>
-            <option value="plantar"     onclick="show('pla', PlaNr); setCurrentCategory('pla'); oki();" onchange="show('pla', PlaNr); setCurrentCategory('pla'); oki();">Plantar</option>
-            <option value="diverse"     onclick="show('div', DivNr); setCurrentCategory('div'); oki();" onchange="show('div', DivNr); setCurrentCategory('div'); oki();">Diverse</option>
+          <select name="category" id="category" onchange="categoryChange();">
+            <option id="op1" value="alle" selected>Alle</option>
+            <option id="op2" value="favorittar">Favorittar</option>
+            <option id="op3" value="dyr">Dyr</option>
+            <option id="op4" value="portrett">Portrett</option>
+            <option id="op5" value="landskap">Landskap</option>
+            <option id="op6" value="plantar">Plantar</option>
+            <option id="op7" value="diverse">Diverse</option>
           </select>
         </div>
         
