@@ -36,3 +36,7 @@ p.about-text {
   font-family: 'Average-Sans', sans-serif;
   font-size: 1em;
 }
+
+.about-link {
+  color: #21cacb;
+}
