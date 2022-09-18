@@ -16,6 +16,9 @@
   min-height: 240px;
   max-width: 440px;
   max-height: 440px;
+  margin: 6px;
+  /*box-shadow: black 0 2px 2px;*/
+  border-radius: 4px;
 }
 
 .about-text {
