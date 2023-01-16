@@ -5,12 +5,12 @@
 // Når du legg til eit nytt bilde, følger du det eksisterande namnemønsteret t.d. dyr057 for det 57ande bildet i kategorien dyr.
 //
 // SKRIV TALET PÅ BILDER I KVAR KATEGORI
-var DyrNr = 67;
-var PorNr = 3;
-var LanNr = 44;
-var PlaNr = 78;
-var DivNr = 74;
-var FavNr = 32;
+var DyrNr = 93;
+var PorNr = 18;
+var LanNr = 86;
+var PlaNr = 134;
+var DivNr = 99;
+var FavNr = 45;
 
 // Det var det :)
 
@@ -42,7 +42,7 @@ function chooseColumn() {
   }
   return columnNr;
 }
-var nr = 01;
+var nr = 001;
 
 function removeImages() {
   const elem1 = document.getElementById("column1");
@@ -80,6 +80,8 @@ function loadImages(category, categoryNr){
     photo.setAttribute("onclick", "imageViewer(src);");
     nr++;
     i++;
+    
+    // Split into 4 columns
     if (c < 4){
       c++;
     }
@@ -319,10 +321,14 @@ function resetCurrentCategory() {
 }
 
 function pad(d) {
-  if (d < 100 && d > 9) {
+  if (d < 100 && d > 9) { // numbers between 9 and 100
     return (d < 100) ? '0' + d.toString() : toString();
-  } else {
+  } 
+  else if (d < 10) { // numbers under 10
     return (d < 10) ? '00' + d.toString() : toString();
+  } 
+  else { // numbers over 99
+    return d.toString();
   }
 }
 
