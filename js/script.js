@@ -1,7 +1,7 @@
 //
 // INSTRUKSJONAR
 // Bytt ut tala nedanfor med kor mange bilder som ligg totalt i dei tilsvarande mappene
-//
+// ENDRE IKKJE PÅ LINJENR FOR DESSE VARIABLANE! SKAL VERE 8 TIL 13
 // Når du legg til eit nytt bilde, følger du det eksisterande namnemønsteret t.d. dyr057 for det 57ande bildet i kategorien dyr.
 //
 // SKRIV TALET PÅ BILDER I KVAR KATEGORI
@@ -55,11 +55,20 @@ function removeImages() {
   elem4.innerHTML = '';
 }
 
-function loadImages(category, categoryNr){
+localStorage.setItem('category_slice', 1);
+
+function loadImages(category, categoryNr, isAll){
   console.log(category);
   var i = 0;
   var u;
-  var c = 1;
+  var c;
+  if (isAll == true){
+    c = localStorage.getItem('category_slice');
+  }
+  else {
+    c = 1;
+  }
+
   nr = 1;
   //let categoryNr = category + 'Nr';
   console.log(categoryNr);
@@ -80,7 +89,7 @@ function loadImages(category, categoryNr){
     photo.setAttribute("onclick", "imageViewer(src);");
     nr++;
     i++;
-    
+
     // Split into 4 columns
     if (c < 4){
       c++;
@@ -88,21 +97,25 @@ function loadImages(category, categoryNr){
     else {
       c = 1;
     }
+    if (i == categoryNr - 1) {
+      console.log(categoryNr);
+    }
+  localStorage.setItem('category_slice', c);
   }
 }
 
-function show(category, categoryNr) {
+function show(category, categoryNr, isAll) {
   removeImages();
-  loadImages(category, categoryNr);
+  loadImages(category, categoryNr, isAll);
 }
 
 function showAll() {
   removeImages();
-  loadImages('dyr', DyrNr);
-  loadImages('por', PorNr);
-  loadImages('lan', LanNr);
-  loadImages('pla', PlaNr);
-  loadImages('div', DivNr);
+  loadImages('dyr', DyrNr, true);
+  loadImages('por', PorNr, true);
+  loadImages('lan', LanNr, true);
+  loadImages('pla', PlaNr, true);
+  loadImages('div', DivNr, true);
 }
 
 /*
@@ -323,10 +336,10 @@ function resetCurrentCategory() {
 function pad(d) {
   if (d < 100 && d > 9) { // numbers between 9 and 100
     return (d < 100) ? '0' + d.toString() : toString();
-  } 
+  }
   else if (d < 10) { // numbers under 10
     return (d < 10) ? '00' + d.toString() : toString();
-  } 
+  }
   else { // numbers over 99
     return d.toString();
   }
@@ -384,39 +397,39 @@ function categoryChange() {
       setCurrentCategory('all');
       oki();
       break;
-      
+
     case 1:
-      show('fav', FavNr);
+      show('fav', FavNr, false);
       setCurrentCategory('fav');
       oki();
       break;
-    
+
     case 2:
-      show('dyr', DyrNr);
+      show('dyr', DyrNr, false);
       setCurrentCategory('dyr');
       oki();
       break;
-      
+
     case 3:
-      show('por', PorNr);
+      show('por', PorNr, false);
       setCurrentCategory('por');
       oki();
       break;
-      
+
     case 4:
-      show('lan', LanNr);
+      show('lan', LanNr, false);
       setCurrentCategory('lan');
       oki();
       break;
-      
+
     case 5:
-      show('pla', PlaNr);
+      show('pla', PlaNr, false);
       setCurrentCategory('pla');
       oki();
       break;
-      
+
     case 6:
-      show('div', DivNr);
+      show('div', DivNr, false);
       setCurrentCategory('div');
       oki();
       break;
