@@ -15,15 +15,10 @@
   </head>
   <body id="body" onload="showAll(); activeButtons(); checkCookies(); checkWelcome(); resetCurrentCategory();">
     <div id="header" class="inline">
-      <div id="top-buttons">
-        <button type="button" name="button" class="three-streak-button" onclick="toggleMenu();"><img src="../images/sort.png" alt="..." class="three-streak-button-img"></button>
-        <button type="button" name="button" class="info-button" onclick="toggleSidebar();"><img src="../images/menu.png" alt="meny" class="info-button-img"></button>
-      </div>
       <nav id="nav-top">
-
-
         <ul id="nav-top-buttons"> <!-- desktop navbuttons -->
-          <li class="li-navbar"><button type="button" name="hbtn-0" id="hbtn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Gå til Framsida</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-0" id="hbtn-0" class="header-button nav-home active-header-button" onclick="nvm(); setCurrentCategory('all');">Framsida</button></li>
+          <li class="li-navbar"><button type="button" name="hbtn-8" id="hbtn-8" class="header-button nav-collections" onclick="showCollections(); setCurrentCategory('col'); oki();">Samlingar</button></li>
           <li class="li-navbar"><button type="button" name="hbtn-1" id="hbtn-1" class="header-button nav-left" onclick="showAll(); setCurrentCategory('all'); oki();">Alle</button></li>
           <li class="li-navbar"><button type="button" name="hbtn-2" id="hbtn-2" class="header-button nav-center" onclick="show('fav', FavNr); setCurrentCategory('fav'); oki();">Favorittar</button></li>
           <li class="li-navbar"><button type="button" name="hbtn-3" id="hbtn-3" class="header-button nav-center" onclick="show('dyr', DyrNr); setCurrentCategory('dyr'); oki();">Dyr</button></li>
@@ -45,7 +40,7 @@
             <option id="op7" value="diverse">Diverse</option>
           </select>
         </div>
-        
+
       </nav>
       <div id="logo"> <!-- logo -->
         <img id="header-logo" alt="KarolineFoto" src="../images/logo.png"><!--
@@ -61,6 +56,8 @@
       <div id="column2" class="column"></div>
       <div id="column3" class="column"></div>
       <div id="column4" class="column"></div>
+
+      <div id="collections-view"></div>
     </div>
     <div id="sidebar" class="phone-hidden"> <!-- The sideview containing additional content -->
       <div id="sidebar-small-links">
@@ -71,7 +68,7 @@
         <a href="about.html" class="sidebar-small-link" title="Om oss"><img src="../images/Info-Round.png" alt="Om oss"></a>
       </div>
     </div>
-    
+
     <div id="cookie-warning-box" style="display: none;">
       <p>Denne Nettsida Brukar Cookies. <button type="button" name="ok" onclick="agreeToCookies();">Ok</button></p>
     </div>

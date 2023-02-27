@@ -436,6 +436,42 @@ function categoryChange() {
   }
 }
 
+function showCollections() {
+  removeImages();
+
+  var view = document.getElementById("collections-view");
+
+  // COLLECTIONS ADDED BELOW:
+  addCollection(view, 'Heading', 'text', '2023-02-27', 2);
+  addCollection(view, 'Heading', 'text', '2023-02-27', 2);
+  addCollection(view, 'Heading', 'text', '2023-02-27', 2);
+}
+
+function addCollection(view, heading, subtext, collection_dir, img_nr) {
+  header = document.createElement('h4');
+  header.innerHTML = heading;
+  view.appendChild(header);
+  text = document.createElement('p');
+  text.innerHTML = subtext;
+  view.appendChild(text);
+  dir = '../photos/' + collection_dir + '/';
+  console.log(collection_dir);
+  console.log(dir);
+  box = document.createElement('div');
+  box.setAttribute("class", "collection-box");
+  view.appendChild(box);
+  for (let i = 0; i < img_nr; i++) {
+    img_box = document.createElement('div');
+    img_box.setAttribute("class", "photo-box");
+    img = document.createElement('img');
+    img.setAttribute("src", dir + 'img' + pad(i + 1) + ".jpg");
+    img.setAttribute("class", "photo");
+    img_box.appendChild(img);
+    box.appendChild(img_box);
+  }
+}
+
+
 function agreeToCookies() {
   localStorage.setItem('hasSeenCookieWarning', 'yes');
   document.getElementById("cookie-warning-box").style.display="none";
