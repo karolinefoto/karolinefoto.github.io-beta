@@ -33,18 +33,20 @@ function activeButtons() {
 
 //Split the images into 4 columns
 function chooseColumn() {
-  var columnNr = 1;
-  var column = getElementById("column" + columnNr);
-  if (columnNr < 4){ columnNr++; } else { columnNr = 1; }
-  return columnNr;
+  console.error('chooseColumn is deprecated');
+  // var columnNr = 1;
+  // var column = getElementById("column" + columnNr);
+  // if (columnNr < 4){ columnNr++; } else { columnNr = 1; }
+  // return columnNr;
 }
 var nr = 001;
 
 function removeImages() {
-  document.getElementById("column1").innerHTML = '';
-  document.getElementById("column2").innerHTML = '';
-  document.getElementById("column3").innerHTML = '';
-  document.getElementById("column4").innerHTML = '';
+  document.getElementById("photos-view").innerHTML = '';
+  // document.getElementById("column1").innerHTML = '';
+  // document.getElementById("column2").innerHTML = '';
+  // document.getElementById("column3").innerHTML = '';
+  // document.getElementById("column4").innerHTML = '';
 }
 
 localStorage.setItem('category_slice', 1);
@@ -70,17 +72,18 @@ function loadImages(category, categoryNr, isAll){
     photo.setAttribute("class", "photo");
     photo.setAttribute("id", "img" + category + u);
     photo.setAttribute("loading", "lazy");
-    document.getElementById("column" + c).appendChild(box);
+    document.getElementById('photos-view').appendChild(box);
+    // document.getElementById("column" + c).appendChild(box);
     document.getElementById("box" + category + u).appendChild(photo);
     photo.setAttribute("onclick", "imageViewer(src);");
     nr++; i++;
 
     // Split into 4 columns
-    if (c < 4){ c++; } else { c = 1; }
-    if (i == categoryNr - 1) {
-      console.log(categoryNr);
-    }
-  localStorage.setItem('category_slice', c);
+  //   if (c < 4){ c++; } else { c = 1; }
+  //   if (i == categoryNr - 1) {
+  //     console.log(categoryNr);
+  //   }
+    localStorage.setItem('category_slice', c);
   }
 }
 
@@ -471,6 +474,8 @@ function addCollection(view, heading, subtext, collection_dir, img_nr) {
     img_box.appendChild(img);
     box.appendChild(img_box);
   }
+  separator = document.createElement('hr');
+  view.appendChild(separator);
 }
 
 
