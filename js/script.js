@@ -20,12 +20,12 @@ observer.observe();
 
 function activeButtons() {
   //Make buttons active
-  var header = document.getElementById("nav-top-buttons");
-  var btns = header.getElementsByClassName("header-button");
+  // var header = document.getElementById("nav-top-buttons");
+  var btns = document.getElementById("nav-top-buttons").getElementsByClassName("header-button");
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active-header-button");
-    current[0].className = current[0].className.replace(" active-header-button", "");
+    // var current = document.getElementsByClassName("active-header-button");
+    document.getElementsByClassName("active-header-button")[0].className = document.getElementsByClassName("active-header-button")[0].className.replace(" active-header-button", "");
     this.className += " active-header-button";
     });
   }
@@ -45,19 +45,16 @@ function chooseColumn() {
 var nr = 001;
 
 function removeImages() {
-  const elem1 = document.getElementById("column1");
-  elem1.innerHTML = '';
-  const elem2 = document.getElementById("column2");
-  elem2.innerHTML = '';
-  const elem3 = document.getElementById("column3");
-  elem3.innerHTML = '';
-  const elem4 = document.getElementById("column4");
-  elem4.innerHTML = '';
+  document.getElementById("column1").innerHTML = '';
+  document.getElementById("column2").innerHTML = '';
+  document.getElementById("column3").innerHTML = '';
+  document.getElementById("column4").innerHTML = '';
 }
 
 localStorage.setItem('category_slice', 1);
 
 function loadImages(category, categoryNr, isAll){
+  clearCollections();
   console.log(category);
   var i = 0;
   var u;
@@ -118,17 +115,6 @@ function showAll() {
   loadImages('div', DivNr, true);
 }
 
-/*
-function clickImage() {
-  getElementById();
-}
-*/
-
-function homePage() {
-
-}
-
-
 function imageViewer(inputImage) {
   document.addEventListener("keyup", keyPress);
   var viewer = document.createElement('div');
@@ -180,21 +166,38 @@ function closeViewer() {
   document.body.focus();
   body.removeAttribute("class", "no-scroll");
   document.removeEventListener("keyup", keyPress);
+}
 
+function analyzeNextSrc(src, nr) {
+  nr = pad(nr);
+  nextNr = pad(nr + 1);
+  var nextSrc = src.replace(nr, nextNr);
+  var img = new Image();
+  img.src = nextSrc;
+  return img.height != 0;
 }
 
 function nextImage() {
   var imageViewChild = document.getElementById("image-viewer-child");
   var oldSrc = imageViewChild.getAttribute("src");
   var oldNr = oldSrc.slice(-7 ,-4);
-  console.log(oldNr);
+  console.log('oldNr = ' + oldNr);
   var oldGrp = oldSrc.slice(-10, -7);
-  console.log(oldGrp);
+  console.log('oldGrp = ' + oldGrp);
   var newNr = Number(oldNr);
-  console.log(newNr);
+  console.log('newNr = ' + newNr);
   var newGrp = oldGrp;
-  console.log(newGrp);
-  if (localStorage.getItem('currentCategory') == 'all') {
+  console.log('newGrp = ' + newGrp);
+  if (localStorage.getItem('currentCategory') == 'col') {
+    // if (analyzeNextSrc(oldSrc, newNr) == true) {
+    if (analyzeNextSrc(oldSrc, newNr) == false) {
+      newNr = 1;
+    }
+    else {
+      newNr++;
+    }
+  }
+  else if (localStorage.getItem('currentCategory') == 'all') {
     if (oldGrp == "dyr" && newNr >= DyrNr) {
       newNr = 1;
       newGrp = 'por';
@@ -321,7 +324,6 @@ function loopAround() {
   var oldSrc = imageViewChild.getAttribute("src");
   var grp = oldSrc.slice(-9, -6);
   if (localStorage.getItem('currentCategory') == 'all') {
-    console.log('1');
   }
 }
 
@@ -333,6 +335,7 @@ function resetCurrentCategory() {
   localStorage.setItem('currentCategory', 'all');
 }
 
+// add 0 or 00 to numbers to make a 3 char ing length string. Does not work for numbers over 999
 function pad(d) {
   if (d < 100 && d > 9) { // numbers between 9 and 100
     return (d < 100) ? '0' + d.toString() : toString();
@@ -354,27 +357,20 @@ function keyPress() {
     closeViewer();
   }
 }
-
-function hideSidebar() {
-  var sidebar = document.getElementById("sidebar");
-  sidebar.style.display = "none";
-}
-
-function showSidebar() {
-  var sidebar = document.getElementById("sidebar");
-  sidebar.removeAttribute("class", "hidden-phone");
-}
-
-function toggleSidebar() {
-  var sidebar = document.getElementById("sidebar");
-  if (sidebar.getAttribute("class") === "phone-hidden") {
-    sidebar.removeAttribute("class", "phone-hidden");
-    body.setAttribute("class", "no-scroll");
-  } else {
-    sidebar.setAttribute("class", "phone-hidden");
-    body.removeAttribute("class", "no-scroll");
-  }
-}
+//
+// function hideSidebar() { document.getElementById("sidebar").style.display = "none"; }
+// function showSidebar() { document.getElementById("sidebar").removeAttribute("class", "hidden-phone"); }
+//
+// function toggleSidebar() {
+//   var sidebar = document.getElementById("sidebar");
+//   if (sidebar.getAttribute("class") === "phone-hidden") {
+//     sidebar.removeAttribute("class", "phone-hidden");
+//     body.setAttribute("class", "no-scroll");
+//   } else {
+//     sidebar.setAttribute("class", "phone-hidden");
+//     body.removeAttribute("class", "no-scroll");
+//   }
+// }
 
 function toggleMenu() {
   var menu = document.getElementById("nav-popup-menu");
@@ -388,6 +384,7 @@ function toggleMenu() {
   }
 }
 
+// HTML drop-down menu for changing category
 function categoryChange() {
   const category_switcher = document.getElementById("category");
   let cat = category_switcher.options.selectedIndex;
@@ -437,21 +434,27 @@ function categoryChange() {
 }
 
 function showCollections() {
+  clearCollections();
   removeImages();
 
   var view = document.getElementById("collections-view");
 
   // COLLECTIONS ADDED BELOW:
-  addCollection(view, 'Heading', 'text', '2023-02-27', 2);
-  addCollection(view, 'Heading', 'text', '2023-02-27', 2);
-  addCollection(view, 'Heading', 'text', '2023-02-27', 2);
+  addCollection(view, 'Nyttår 2022-2023', 'Godt Nytt År!', '2023-01-01', 1);
+  addCollection(view, 'Vinter 2023', 'Vi hadde eit mål om å ta nokre vinterbilete medan snøven endå var her. Ganske fornøgd med resultatet!', '2023-02-27', 8);
+}
+
+function clearCollections() {
+  document.getElementById("collections-view").innerHTML = '';
 }
 
 function addCollection(view, heading, subtext, collection_dir, img_nr) {
   header = document.createElement('h4');
+  header.setAttribute("class", "collection-header");
   header.innerHTML = heading;
   view.appendChild(header);
   text = document.createElement('p');
+  text.setAttribute("class", "collection-text");
   text.innerHTML = subtext;
   view.appendChild(text);
   dir = '../photos/' + collection_dir + '/';
@@ -466,6 +469,7 @@ function addCollection(view, heading, subtext, collection_dir, img_nr) {
     img = document.createElement('img');
     img.setAttribute("src", dir + 'img' + pad(i + 1) + ".jpg");
     img.setAttribute("class", "photo");
+    img.setAttribute("onclick", "imageViewer(src);");
     img_box.appendChild(img);
     box.appendChild(img_box);
   }
@@ -514,40 +518,31 @@ function checkWelcome() {
 }
 
 function runCarousel() {
-  carousel = document.getElementsByClassName("carousel");
-  slides = carousel[0].getElementsByClassName("carousel-slide");
+  slides = document.getElementsByClassName("carousel")[0].getElementsByClassName("carousel-slide");
   for (let i = 0; i < slides.length; i++) {
-    console.log(slides[i].className);
     if (slides[i].className.includes(" carousel-slide--1")) {
-      console.log("found carousel-slide--1");
       slides[i].className = slides[i].className.replace(" carousel-slide--1", " carousel-slide-0");
     }
     else if (slides[i].className.includes(" carousel-slide-0")) {
-      console.log("found carousel-slide-0");
       slides[i].className = slides[i].className.replace(" carousel-slide-0", " carousel-slide-1");
     }
     else if (slides[i].className.includes(" carousel-slide-1")) {
-      console.log("found carousel-slide-1");
       slides[i].className = slides[i].className.replace(" carousel-slide-1", " carousel-slide-2");
     }
     else if (slides[i].className.includes(" carousel-slide-2")) {
-      console.log("found carousel-slide-2");
       slides[i].className = slides[i].className.replace(" carousel-slide-2", " carousel-slide-3");
     }
     else if (slides[i].className.includes(" carousel-slide-3")) {
-      console.log("found carousel-slide-3");
       slides[i].className = slides[i].className.replace(" carousel-slide-3", " carousel-slide-4");
     }
     else if (slides[i].className.includes(" carousel-slide-4")) {
-      console.log("found carousel-slide-4");
       slides[i].className = slides[i].className.replace(" carousel-slide-4", " carousel-slide-5");
     }
     else if (slides[i].className.includes(" carousel-slide-5")) {
-      console.log("found carousel-slide-5");
       slides[i].className = slides[i].className.replace(" carousel-slide-5", " carousel-slide--1");
     }
     else {
-      console.log("no match");
+      console.warn("CAROUSEL - no match");
     }
   }
 }

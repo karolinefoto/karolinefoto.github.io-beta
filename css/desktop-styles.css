@@ -341,10 +341,19 @@ nav {
 .collection-box {
   display: flex;
   flex-flow: row wrap;
+  width: 100%;
 }
 
 .collection-box > .photo-box {
   width: calc(25% - 12px);
+}
+
+.collection-header {
+  margin-left: 20px;
+}
+
+.collection-text {
+  margin-left: 25px;
 }
 
 .top-padding {
