@@ -7,10 +7,10 @@
 // SKRIV TALET PÅ BILDER I KVAR KATEGORI
 var DyrNr = 93;
 var PorNr = 18;
-var LanNr = 86;
+var LanNr = 88;
 var PlaNr = 134;
 var DivNr = 99;
-var FavNr = 45;
+var FavNr = 46;
 
 // Det var det :)
 
@@ -441,8 +441,8 @@ function showCollections() {
   var view = document.getElementById("collections-view");
 
   // COLLECTIONS ADDED BELOW:
-  addCollection(view, 'Nyttår 2022-2023', 'Godt Nytt År!', '2023-01-01', 1);
-  addCollection(view, 'Vinter 2023', 'Vi hadde eit mål om å ta nokre vinterbilete medan snøven endå var her. Ganske fornøgd med resultatet!', '2023-02-27', 8);
+  // addCollection(view, 'Nyttår 2022-2023', 'Godt Nytt År!', '2023-01-01', 5);
+  addCollection(view, 'Vinter 2023', 'Vi hadde eit mål om å ta nokre vinterbilete medan snøven endå var her. Ganske fornøgd med resultatet!', '2023-02-27', 2);
 }
 
 function clearCollections() {
